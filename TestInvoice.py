@@ -14,6 +14,12 @@ def invoice():
     invoice = Invoice()
     return invoice
 
+@pytest.fixture()
+def taxRate():
+    taxRate = 5
+    return taxRate
+
+
 
 def test_CanCalculateTotalImpurePrice(invoice, products):
     invoice.totalImpurePrice(products)
@@ -28,3 +34,7 @@ def test_CanCalculateTotalDiscount(invoice, products):
 def test_CanCalculateTotalPurePrice(invoice, products):
     invoice.totalPurePrice(products)
     assert invoice.totalPurePrice(products) == 69.38
+
+def test_CanCalculateTax(invoice, products, taxRate):
+    invoice.calculateTax(products, taxRate)
+    assert invoice.calculateTax(products, taxRate) == 3.47

@@ -13,7 +13,9 @@ while True:
     products[product] = result
     if repeat == "n":
         break
+salesTaxRate = Invoice().inputNumber("Sales Tax rate for this invoice (%) : ")
 
 total_amount = Invoice().totalPurePrice(products)
 
+tax_amount = Invoice().calculateTax(products, salesTaxRate)
 print("Your total pure price is: ", total_amount)

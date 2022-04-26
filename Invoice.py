@@ -28,6 +28,14 @@ class Invoice:
         total_pure_price = self.totalImpurePrice(products) - self.totalDiscount(products)
         return total_pure_price
 
+    def calculateTax(self, products, taxPercentage):
+        total_sales_price = 0
+        ## Complete the missing part of this fuction here
+        total_sales_price = self.totalImpurePrice(products) - self.totalDiscount(products)
+        total_sales_tax = total_sales_price * (taxPercentage / 100)
+        total_sales_tax = round(total_sales_tax, 2)
+        return total_sales_tax
+
     def inputAnswer(self, input_value):
         while True:
             userInput = input(input_value)
